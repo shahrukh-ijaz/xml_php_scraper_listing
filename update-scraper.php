@@ -52,6 +52,9 @@ for($i=0; $i< count($listings); $i++){
     
     $image_src = substr($image, 0, -4);    
      
+    $image_xml = $listing_xml->addChild('image');
+    $image_xml->addChild('url', $image); // add main header image
+
     for($image_id=1; $image_id<$no_of_image; $image_id++)
     {   
         $image_xml = $listing_xml->addChild('image'); 
@@ -62,9 +65,7 @@ for($i=0; $i< count($listings); $i++){
         $src = $image_src . "_" . $value . ".jpg";                   
         $image_xml->addChild('url', $src);     
     }
-    $image_xml = $listing_xml->addChild('image');
-    $image_xml->addChild('url', $image); // add main header image
-
+    
     $longitude = array();  
     $latitude = array();  
     $city = array();
